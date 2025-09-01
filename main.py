@@ -3,12 +3,12 @@ from procesos.planificador import Planificador
 from procesos.proceso import Proceso
 from interfaz.panel import mostrar_estado
 
+# 🔧 Crear procesos con parámetros definidos
 def crear_procesos():
-    # Incluye el número de páginas como tercer parámetro
     return [Proceso(1, 5, 4), Proceso(2, 3, 2)]
 
-if __name__ == "__main__":
-    # 🟢 Simulación Round Robin
+# 🟢 Simulación Round Robin
+def ejecutar_round_robin():
     print("\n--- 🟢 Simulación Round Robin ---\n")
     gestor_memoria_rr = GestorMemoria(tamaño_total=400, tamaño_bloque=100)
     procesos_rr = crear_procesos()
@@ -20,11 +20,11 @@ if __name__ == "__main__":
 
     planificador_rr.ejecutar_round_robin()
     mostrar_estado(procesos_rr)
-
     gestor_memoria_rr.mostrar_tabla_paginas()
     gestor_memoria_rr.visualizar_ascii()
 
-    # 🔵 Simulación FCFS
+# 🔵 Simulación FCFS
+def ejecutar_fcfs():
     print("\n--- 🔵 Simulación FCFS ---\n")
     gestor_memoria_fcfs = GestorMemoria(tamaño_total=400, tamaño_bloque=100)
     procesos_fcfs = crear_procesos()
@@ -36,6 +36,30 @@ if __name__ == "__main__":
 
     planificador_fcfs.ejecutar_fcfs()
     mostrar_estado(procesos_fcfs)
-
     gestor_memoria_fcfs.mostrar_tabla_paginas()
     gestor_memoria_fcfs.visualizar_ascii()
+
+# 🧠 Menú interactivo CLI – Semana 6
+def mostrar_menu():
+    print("\n Simulador de Planificación y Memoria")
+    print("1. Ejecutar Round Robin")
+    print("2. Ejecutar FCFS")
+    print("3. Salir")
+
+def ejecutar_simulacion(opcion):
+    if opcion == "1":
+        ejecutar_round_robin()
+    elif opcion == "2":
+        ejecutar_fcfs()
+    elif opcion == "3":
+        print("👋 Simulador finalizado.")
+        exit()
+    else:
+        print("❌ Opción inválida. Intenta de nuevo.")
+
+# 🚀 Bucle principal
+if __name__ == "__main__":
+    while True:
+        mostrar_menu()
+        opcion = input("Selecciona una opción: ")
+        ejecutar_simulacion(opcion)
