@@ -3,4 +3,4 @@ class Bloque:
         self.inicio = inicio
         self.tamaño = tamaño
         self.ocupado = False
-        hola
+        

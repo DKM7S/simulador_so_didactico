@@ -9,6 +9,6 @@ if __name__ == "__main__":
     planificador = Planificador(quantum=2)
     planificador.agregar_proceso(p1)
     planificador.agregar_proceso(p2)
-    planificador.ejecutar()
+    planificador.ejecutar_round_robin()
 
     mostrar_estado([p1, p2])
