@@ -43,5 +43,7 @@ class GestorMemoria:
     def visualizar_ascii(self):
         print("\n🧱 Estado de los bloques:")
         for bloque in self.bloques:
-            estado = f"[{bloque.inicio}] Página {bloque.pagina_asignada}" if bloque.ocupado else f"[{bloque.inicio}] Libre"
-            print(estado)
+            if bloque.ocupado:
+                print(f"[{bloque.inicio}] Página {bloque.pagina_asignada}")
+            else:
+                print(f"[{bloque.inicio}] Libre")

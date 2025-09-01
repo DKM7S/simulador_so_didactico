@@ -82,3 +82,42 @@ PID 2 - Estado: Terminado
 
 ✅ Resultado
 Round Robin funcional con cambio de estado. FCFS listo para integrar. Visualización clara en consola.
+
+semana 4
+
+# 🧠 Módulo de Memoria con Paginación – Semana 4
+
+Este módulo simula la gestión de memoria por paginación en un sistema operativo didáctico. Se integra con el planificador de procesos y permite visualizar cómo se asignan las páginas a bloques físicos.
+
+## 📦 Estructura
+
+
+## ⚙️ Clases principales
+
+### `Bloque`
+Representa un marco de memoria:
+- `inicio`: dirección inicial
+- `tamaño`: tamaño del bloque
+- `ocupado`: estado del bloque
+- `pagina_asignada`: ID de la página asignada
+
+### `GestorMemoria`
+Gestiona la asignación de páginas:
+- `asignar(proceso)`: asigna páginas del proceso a bloques libres
+- `mostrar_tabla_paginas()`: muestra la tabla de páginas
+- `visualizar_ascii()`: muestra el estado de los bloques
+
+## 🧪 Ejemplo de uso
+
+```python
+gestor = GestorMemoria(tamaño_total=400, tamaño_bloque=100)
+
+proceso1 = {"id": "P1", "num_paginas": 3}
+gestor.asignar(proceso1)
+
+gestor.mostrar_tabla_paginas()
+gestor.visualizar_ascii()
+Integración con planificación
+
+El módulo se conecta con el planificador (Round Robin y FCFS) para asignar memoria a cada proceso al momento de su creación.
+

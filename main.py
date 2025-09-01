@@ -1,3 +1,4 @@
+from memoria.gestor_memoria import GestorMemoria
 from procesos.planificador import Planificador
 from procesos.proceso import Proceso
 from interfaz.panel import mostrar_estado
